@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A3A37066-B084-4A6C-AB3A-CFD64EE54299}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProtocolClient</RootNamespace>
+    <AssemblyName>ProtocolClient</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommandLine, Version=2.9.1.0, Culture=neutral, PublicKeyToken=5a870481e358d379, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommandLineParser.2.9.1\lib\net461\CommandLine.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.CommandLineUtils, Version=1.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.CommandLineUtils.1.1.1\lib\net451\Microsoft.Extensions.CommandLineUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>..\Library\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Config.cs" />
+    <Compile Include="GenCodeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GenCodeForm.Designer.cs">
+      <DependentUpon>GenCodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options.cs" />
+    <Compile Include="Scripts\AS3CodeGenerator.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Scripts\CodeUtil.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Scripts\CPPCodeGenerator.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Scripts\GolangCodeGenerator.cs" />
+    <Compile Include="Scripts\ProtoCodeGenerator.cs" />
+    <Compile Include="Scripts\UnityCodeGenerator.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="GenSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GenSettingForm.Designer.cs">
+      <DependentUpon>GenSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GenSettingMgrForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GenSettingMgrForm.Designer.cs">
+      <DependentUpon>GenSettingMgrForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Global.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MsgBoxLogger.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="ProjectInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProjectInfoForm.Designer.cs">
+      <DependentUpon>ProjectInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectMgrForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProjectMgrForm.Designer.cs">
+      <DependentUpon>ProjectMgrForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProtocolCore\DBHelper.cs" />
+    <Compile Include="ProtocolCore\Exports\ExportAttribute.cs" />
+    <Compile Include="ProtocolCore\Exports\ExportMgr.cs" />
+    <Compile Include="ProtocolCore\Exports\IExport.cs" />
+    <Compile Include="ProtocolCore\FieldInfo.cs" />
+    <Compile Include="ProtocolCore\Generates\GeneratorAttribute.cs" />
+    <Compile Include="ProtocolCore\Generates\GeneratorInfo.cs" />
+    <Compile Include="ProtocolCore\Generates\GeneratorMgr.cs" />
+    <Compile Include="ProtocolCore\Generates\GeneratorPaths.cs" />
+    <Compile Include="ProtocolCore\Generates\GeneratorSetting.cs" />
+    <Compile Include="ProtocolCore\Generates\IGenerator.cs" />
+    <Compile Include="ProtocolCore\Imports\IImport.cs" />
+    <Compile Include="ProtocolCore\Imports\ImportAttribute.cs" />
+    <Compile Include="ProtocolCore\Imports\ImportMgr.cs" />
+    <Compile Include="ProtocolCore\MySQLUtil.cs" />
+    <Compile Include="ProtocolCore\PathType.cs" />
+    <Compile Include="ProtocolCore\ProjectInfo.cs" />
+    <Compile Include="ProtocolCore\ProtocolInfo.cs" />
+    <Compile Include="ProtocolCore\StructInfo.cs" />
+    <Compile Include="ProtocolCore\XMLUtil.cs" />
+    <Compile Include="ProtocolInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProtocolInfoForm.Designer.cs">
+      <DependentUpon>ProtocolInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProtocolUtil.cs" />
+    <Compile Include="RowDragDrop.cs" />
+    <Compile Include="Scripts\ImportXML.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Scripts\ExportXML.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Scripts\CSharpCodeGenerator.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="SettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingForm.Designer.cs">
+      <DependentUpon>SettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StructInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StructInfoForm.Designer.cs">
+      <DependentUpon>StructInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <EmbeddedResource Include="GenCodeForm.resx">
+      <DependentUpon>GenCodeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GenSettingForm.resx">
+      <DependentUpon>GenSettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GenSettingMgrForm.resx">
+      <DependentUpon>GenSettingMgrForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProjectInfoForm.resx">
+      <DependentUpon>ProjectInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProjectMgrForm.resx">
+      <DependentUpon>ProjectMgrForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="ProtocolInfoForm.resx">
+      <DependentUpon>ProtocolInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingForm.resx">
+      <DependentUpon>SettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StructInfoForm.resx">
+      <DependentUpon>StructInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\del.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UnityLight\UnityLight.csproj">
+      <Project>{cffdb486-69b8-4ede-89b0-eec4540acc6c}</Project>
+      <Name>UnityLight</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

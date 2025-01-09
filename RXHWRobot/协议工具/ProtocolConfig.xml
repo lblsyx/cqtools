@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Config xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>苏金水</Name>
+  <ProjectID>1</ProjectID>
+  <SQLPort>3306</SQLPort>
+  <SQLDB>protocols</SQLDB>
+  <SQLHost>192.168.0.10</SQLHost>
+  <SQLUser>root</SQLUser>
+  <SQLPass>gongxifacai</SQLPass>
+  <ScriptReflections>
+    <string>System.dll</string>
+    <string>System.Core.dll</string>
+    <string>System.Data.dll</string>
+    <string>System.Data.DataSetExtensions.dll</string>
+    <string>System.Deployment.dll</string>
+    <string>System.Drawing.dll</string>
+    <string>System.Windows.Forms.dll</string>
+    <string>System.Xml.dll</string>
+    <string>System.Xml.Linq.dll</string>
+    <string>MySql.Data.dll</string>
+    <string>UnityLight.dll</string>
+  </ScriptReflections>
+  <Paths>
+    <GeneratorPaths>
+      <GeneratorType>AS3Code</GeneratorType>
+      <ProjectID>1</ProjectID>
+      <OutputPath1>D:\AllSVN\RXHW\RXHW_CLIENT\RPGGame\src\game\pkts</OutputPath1>
+      <OutputPath2 />
+    </GeneratorPaths>
+    <GeneratorPaths>
+      <GeneratorType>UnityCode</GeneratorType>
+      <ProjectID>1</ProjectID>
+      <OutputPath1>D:\AllSVN\RXLW\UnityLight\RXHWRobot\Structs.cs</OutputPath1>
+      <OutputPath2>D:\AllSVN\RXLW\UnityLight\RXHWRobot\Protocols.cs</OutputPath2>
+    </GeneratorPaths>
+  </Paths>
+</Config>

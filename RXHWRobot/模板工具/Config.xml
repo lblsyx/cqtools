@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ToolConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <UseFolder>false</UseFolder>
+  <ExcelFilePath>D:\AllSVN\RXHW\RXHW_PLAN\Template.xls</ExcelFilePath>
+  <ExcelFolderPath />
+  <IgnoreSheetNames>导出</IgnoreSheetNames>
+  <CodeFileOutputPath>D:\AllSVN\RXLW\UnityLight\RXHWRobot\Templates.cs</CodeFileOutputPath>
+  <CodeFileOutputPath2 />
+  <CodeFileContentFormat>using System;
+using System.Text;
+using System.Collections.Generic;
+
+using UnityLight.Tpls;
+using UnityLight.Internets;
+
+namespace RXHWRobot
+{
+    __CodeContent__
+}</CodeFileContentFormat>
+  <CodeFileContentFormat2 />
+  <PackDataFileOutputPath>C:\Users\admin\Desktop\Template.dat</PackDataFileOutputPath>
+  <PackParameterList>
+    <PackParameter>
+      <PackerType>1</PackerType>
+      <PackDataFileOutputPath>C:\Users\admin\Desktop\Template.dat</PackDataFileOutputPath>
+    </PackParameter>
+  </PackParameterList>
+  <CodeParameterList>
+    <GenerateParameter>
+      <GeneratorType>1</GeneratorType>
+      <CodeFileOutputPath>D:\RXHW\Rxhw_Server\ServerCore\Include\TMPLDBStructs.h</CodeFileOutputPath>
+      <CodeFileOutputPath2>D:\RXHW\Rxhw_Server\ServerCore\Source\TMPLDBStructs.cpp</CodeFileOutputPath2>
+      <CodeFileContentFormat>#ifndef DB_STRUCTS_ARPG_TMPLDB_H_
+#define DB_STRUCTS_ARPG_TMPLDB_H_
+
+__CodeContent__
+
+#endif</CodeFileContentFormat>
+      <CodeFileContentFormat2>#include "stdafx.h"
+
+__CodeContent__</CodeFileContentFormat2>
+    </GenerateParameter>
+    <GenerateParameter>
+      <GeneratorType>2</GeneratorType>
+      <CodeFileOutputPath>D:\RXHW\Rxhw_Client\RPGGame\src\game\tpls</CodeFileOutputPath>
+      <CodeFileOutputPath2 />
+      <CodeFileContentFormat>/**
+ * Created by Tool, don't edit this file.
+ */
+package game.tpls {
+import com.tpl.Tpl;
+
+import flash.utils.ByteArray;
+
+__CodeContent__
+}</CodeFileContentFormat>
+      <CodeFileContentFormat2 />
+    </GenerateParameter>
+    <GenerateParameter>
+      <GeneratorType>3</GeneratorType>
+      <CodeFileOutputPath>D:\AllSVN\RXLW\UnityLight\RXHWRobot\Templates.cs</CodeFileOutputPath>
+      <CodeFileOutputPath2 />
+      <CodeFileContentFormat>using System;
+using System.Text;
+using System.Collections.Generic;
+
+using UnityLight.Tpls;
+using UnityLight.Internets;
+
+namespace RXHWRobot
+{
+    __CodeContent__
+}</CodeFileContentFormat>
+      <CodeFileContentFormat2 />
+    </GenerateParameter>
+  </CodeParameterList>
+  <MySQLHost>192.168.0.10</MySQLHost>
+  <MySQLPort>3306</MySQLPort>
+  <MySQLUser>root</MySQLUser>
+  <MySQLPass>gongxifacai</MySQLPass>
+  <MySQLDB>rxlw_template</MySQLDB>
+  <GenSelectedIndex>2</GenSelectedIndex>
+  <PackSelectedIndex>0</PackSelectedIndex>
+</ToolConfig>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Paths xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <GeneratorPaths>
+    <GeneratorPath>
+      <DBName>dhl_crossservicedb</DBName>
+      <GeneratorType>C++ServerMappingCode</GeneratorType>
+      <OutputPath1>D:\CQ\CQ_SERVER\ServerCore\Include\CrossServiceDBStructs.h</OutputPath1>
+      <OutputPath2>D:\CQ\CQ_SERVER\ServerCore\Source\CrossServiceDBStructs.cpp</OutputPath2>
+    </GeneratorPath>
+    <GeneratorPath>
+      <DBName>dhl_s1</DBName>
+      <GeneratorType>C++ServerMappingCode</GeneratorType>
+      <OutputPath1>C:\Users\liubo\Desktop\1.h</OutputPath1>
+      <OutputPath2>C:\Users\liubo\Desktop\1.cpp</OutputPath2>
+    </GeneratorPath>
+    <GeneratorPath>
+      <DBName>dhl_temp</DBName>
+      <GeneratorType>C++ServerMappingCode</GeneratorType>
+      <OutputPath1>C:\Users\liubo\Desktop\1.h</OutputPath1>
+      <OutputPath2>C:\Users\liubo\Desktop\1.cpp</OutputPath2>
+    </GeneratorPath>
+    <GeneratorPath>
+      <DBName>dhl_s2</DBName>
+      <GeneratorType>C++ServerMappingCode</GeneratorType>
+    </GeneratorPath>
+    <GeneratorPath>
+      <DBName>dhl_szy</DBName>
+      <GeneratorType>C++ServerMappingCode</GeneratorType>
+      <OutputPath1>D:\CQ\CQ_SERVER\ServerCore\Include\GameDBStructs.h</OutputPath1>
+      <OutputPath2>D:\CQ\CQ_SERVER\ServerCore\Source\GameDBStructs.cpp</OutputPath2>
+    </GeneratorPath>
+  </GeneratorPaths>
+</Paths>

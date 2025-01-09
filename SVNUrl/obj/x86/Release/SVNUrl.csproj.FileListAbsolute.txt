@@ -1,0 +1,10 @@
+D:\CQ\DHL_ToolCode\trunk\SVNUrl\bin\Release\SVNUrl.exe.config
+D:\CQ\DHL_ToolCode\trunk\SVNUrl\bin\Release\SVNUrl.exe
+D:\CQ\DHL_ToolCode\trunk\SVNUrl\bin\Release\SVNUrl.pdb
+D:\CQ\DHL_ToolCode\trunk\SVNUrl\obj\x86\Release\SVNUrl.csproj.AssemblyReference.cache
+D:\CQ\DHL_ToolCode\trunk\SVNUrl\obj\x86\Release\SVNUrl.MainForm.resources
+D:\CQ\DHL_ToolCode\trunk\SVNUrl\obj\x86\Release\SVNUrl.Properties.Resources.resources
+D:\CQ\DHL_ToolCode\trunk\SVNUrl\obj\x86\Release\SVNUrl.csproj.GenerateResource.cache
+D:\CQ\DHL_ToolCode\trunk\SVNUrl\obj\x86\Release\SVNUrl.csproj.CoreCompileInputs.cache
+D:\CQ\DHL_ToolCode\trunk\SVNUrl\obj\x86\Release\SVNUrl.exe
+D:\CQ\DHL_ToolCode\trunk\SVNUrl\obj\x86\Release\SVNUrl.pdb

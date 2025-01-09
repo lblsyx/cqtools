@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Config xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <GeneratorSettings>
+    <GeneratorSetting>
+      <DBName>arpg_gamedb</DBName>
+      <GeneratorType>C++ServerMappingCode</GeneratorType>
+      <CodeContentFormat1>#ifndef DB_STRUCTS_ARPG_GAMEDB_H_
+#define DB_STRUCTS_ARPG_GAMEDB_H_
+
+$$CodeContent$$
+
+#endif
+</CodeContentFormat1>
+      <CodeContentFormat2>#include "stdafx.h"
+
+$$CodeContent$$
+</CodeContentFormat2>
+    </GeneratorSetting>
+    <GeneratorSetting>
+      <DBName>rxlw_gamedb</DBName>
+      <GeneratorType>C++ServerMappingCode</GeneratorType>
+      <CodeContentFormat1>#ifndef DB_STRUCTS_RXLW_GAMEDB_H_
+#define DB_STRUCTS_RXLW_GAMEDB_H_
+
+$$CodeContent$$
+
+#endif</CodeContentFormat1>
+      <CodeContentFormat2>#include "stdafx.h"
+
+$$CodeContent$$
+</CodeContentFormat2>
+    </GeneratorSetting>
+    <GeneratorSetting>
+      <DBName>rxlw_template</DBName>
+      <GeneratorType>C++ServerMappingCode</GeneratorType>
+      <CodeContentFormat1>#ifndef DB_STRUCTS_RXLW_TEMPLATE_H_
+#define DB_STRUCTS_RXLW_TEMPLATE_H_
+
+$$CodeContent$$
+
+#endif</CodeContentFormat1>
+      <CodeContentFormat2>#include "stdafx.h"
+
+$$CodeContent$$
+</CodeContentFormat2>
+    </GeneratorSetting>
+    <GeneratorSetting>
+      <DBName>arpg_tmpldb</DBName>
+      <GeneratorType>C++ServerMappingCode</GeneratorType>
+      <CodeContentFormat1>#ifndef DB_STRUCTS_ARPG_TMPLDB_H_
+#define DB_STRUCTS_ARPG_TMPLDB_H_
+
+$$CodeContent$$
+
+#endif
+</CodeContentFormat1>
+      <CodeContentFormat2>#include "stdafx.h"
+
+$$CodeContent$$
+</CodeContentFormat2>
+    </GeneratorSetting>
+    <GeneratorSetting>
+      <DBName>arpg_carddb</DBName>
+      <GeneratorType>C++ServerMappingCode</GeneratorType>
+    </GeneratorSetting>
+    <GeneratorSetting>
+      <DBName>dhl_gamedb</DBName>
+      <GeneratorType>C++ServerMappingCode</GeneratorType>
+      <CodeContentFormat1>#ifndef DB_STRUCTS_ARPG_GAMEDB_H_
+#define DB_STRUCTS_ARPG_GAMEDB_H_
+
+$$CodeContent$$
+
+#endif</CodeContentFormat1>
+      <CodeContentFormat2>#include "stdafx.h"
+
+$$CodeContent$$</CodeContentFormat2>
+    </GeneratorSetting>
+    <GeneratorSetting>
+      <DBName>dhl_platform</DBName>
+      <GeneratorType>C++ServerMappingCode</GeneratorType>
+    </GeneratorSetting>
+    <GeneratorSetting>
+      <DBName>dhl_temp</DBName>
+      <GeneratorType>C++ServerMappingCode</GeneratorType>
+      <CodeContentFormat1>#ifndef DB_STRUCTS_ARPG_GAMEDB_H_
+#define DB_STRUCTS_ARPG_GAMEDB_H_
+
+$$CodeContent$$
+
+#endif</CodeContentFormat1>
+      <CodeContentFormat2>#include "stdafx.h"
+
+$$CodeContent$$</CodeContentFormat2>
+    </GeneratorSetting>
+    <GeneratorSetting>
+      <DBName>dhl_crossservicedb</DBName>
+      <GeneratorType>C++ServerMappingCode</GeneratorType>
+      <CodeContentFormat1>#ifndef DB_STRUCTS_ARPG_CROSSSERVERDB_H_
+#define DB_STRUCTS_ARPG_CROSSSERVERDB_H_
+
+$$CodeContent$$
+
+#endif</CodeContentFormat1>
+      <CodeContentFormat2>#include "stdafx.h"
+
+$$CodeContent$$</CodeContentFormat2>
+    </GeneratorSetting>
+    <GeneratorSetting>
+      <DBName>dhl_s2</DBName>
+      <GeneratorType>C++ServerMappingCode</GeneratorType>
+    </GeneratorSetting>
+    <GeneratorSetting>
+      <DBName>dhl_s1</DBName>
+      <GeneratorType>C++ServerMappingCode</GeneratorType>
+      <CodeContentFormat1>#ifndef DB_STRUCTS_RXLW_GAMEDB_H_
+#define DB_STRUCTS_RXLW_GAMEDB_H_
+
+$$CodeContent$$</CodeContentFormat1>
+      <CodeContentFormat2>#include "stdafx.h"
+
+$$CodeContent$$</CodeContentFormat2>
+    </GeneratorSetting>
+    <GeneratorSetting>
+      <DBName>dhl_szy</DBName>
+      <GeneratorType>C++ServerMappingCode</GeneratorType>
+      <CodeContentFormat1>#ifndef DB_STRUCTS_ARPG_GAMEDB_H_
+#define DB_STRUCTS_ARPG_GAMEDB_H_
+
+$$CodeContent$$
+
+#endif
+</CodeContentFormat1>
+      <CodeContentFormat2>#include "stdafx.h"
+
+$$CodeContent$$
+</CodeContentFormat2>
+    </GeneratorSetting>
+  </GeneratorSettings>
+  <Connections>
+    <ConnectionInfo>
+      <Host>192.168.50.80</Host>
+      <Port>3306</Port>
+      <User>dhl</User>
+      <Pass>dhl</Pass>
+    </ConnectionInfo>
+    <ConnectionInfo>
+      <Host>192.168.21.18</Host>
+      <Port>3306</Port>
+      <User>dhl</User>
+      <Pass>dhl</Pass>
+    </ConnectionInfo>
+  </Connections>
+  <ScriptReflections>
+    <string>System.dll</string>
+    <string>System.Core.dll</string>
+    <string>System.Data.dll</string>
+    <string>System.Data.DataSetExtensions.dll</string>
+    <string>System.Deployment.dll</string>
+    <string>System.Drawing.dll</string>
+    <string>System.Windows.Forms.dll</string>
+    <string>System.Xml.dll</string>
+    <string>System.Xml.Linq.dll</string>
+    <string>MySql.Data.dll</string>
+    <string>UnityLight.dll</string>
+  </ScriptReflections>
+</Config>

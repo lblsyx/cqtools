@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4913AA51-3F73-4C2F-A726-07D5571D3F99}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UnityExt</RootNamespace>
+    <AssemblyName>UnityExt</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;UNITY_4_6_5;UNITY_4_6;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_IL2CPP;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;UNITY5_SCRIPTING_IN_UNITY4;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_MONO;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE;NEW_CLIENT</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Library\UnityEngine.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ExtUtil.cs" />
+    <Compile Include="Follows\IFollow.cs" />
+    <Compile Include="Follows\ZFollowMgr.cs" />
+    <Compile Include="Loaders\DownloadQueue.cs" />
+    <Compile Include="Loaders\LoaderConfig.cs" />
+    <Compile Include="Loaders\LoaderItem.cs" />
+    <Compile Include="Loaders\LoaderMgr.cs" />
+    <Compile Include="Loaders\LoaderQueue.cs" />
+    <Compile Include="Loaders\URLLoader.cs" />
+    <Compile Include="MeshCombineUtility.cs" />
+    <Compile Include="Preloads\IPreload.cs" />
+    <Compile Include="Preloads\PreloadAttribute.cs" />
+    <Compile Include="Preloads\PreloadBase.cs" />
+    <Compile Include="Preloads\PreloadMgr.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ZScene\CameraLocks\CameraLockType.cs" />
+    <Compile Include="ZScene\CameraLocks\ILockCamera.cs" />
+    <Compile Include="ZScene\CameraLocks\LockCameraAttribute.cs" />
+    <Compile Include="ZScene\CameraLocks\LockCameraAxisX.cs" />
+    <Compile Include="ZScene\CameraLocks\LockCameraAxisY.cs" />
+    <Compile Include="ZScene\CameraLocks\LockCameraData.cs" />
+    <Compile Include="ZScene\CameraLocks\LockCameraDistance.cs" />
+    <Compile Include="ZScene\CameraLocks\LockCameraOffset.cs" />
+    <Compile Include="ZScene\Follows\CameraFollow.cs" />
+    <Compile Include="ZScene\Follows\LightFollow.cs" />
+    <Compile Include="ZScene\RelevanceBehaviour.cs" />
+    <Compile Include="ZScene\SceneArea.cs" />
+    <Compile Include="ZScene\SceneInfo.cs" />
+    <Compile Include="ZScene\ZSceneCtrl.cs" />
+    <Compile Include="ZScene\ZSceneEvent.cs" />
+    <Compile Include="ZScene\ZSceneInfo.cs" />
+    <Compile Include="ZScene\ZSceneMesh.cs" />
+    <Compile Include="ZScene\ZSceneMgr.cs" />
+    <Compile Include="ZScene\ZSceneObject.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UnityLight\UnityLight.csproj">
+      <Project>{cffdb486-69b8-4ede-89b0-eec4540acc6c}</Project>
+      <Name>UnityLight</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetPath) $(SolutionDir)Output\$(ConfigurationName)
+copy $(TargetDir)$(ProjectName).pdb $(SolutionDir)Output\$(ConfigurationName)</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

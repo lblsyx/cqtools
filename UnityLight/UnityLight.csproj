@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CFFDB486-69B8-4EDE-89B0-EEC4540ACC6C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UnityLight</RootNamespace>
+    <AssemblyName>UnityLight</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;UNITY_MIR</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Action\ActionQueue.cs" />
+    <Compile Include="Action\BaseAction.cs" />
+    <Compile Include="Callbacks.cs" />
+    <Compile Include="Chunks\ChunkData.cs" />
+    <Compile Include="Chunks\ChunkImp.cs" />
+    <Compile Include="Chunks\ChunkType.cs" />
+    <Compile Include="Chunks\FileDataIO.cs" />
+    <Compile Include="Chunks\IChunkIO.cs" />
+    <Compile Include="Chunks\MapChunks\EventData.cs" />
+    <Compile Include="Chunks\MapChunks\MapBlockChunkIO.cs" />
+    <Compile Include="Chunks\MapChunks\MapChunkType.cs" />
+    <Compile Include="Chunks\MapChunks\MapDataIO.cs" />
+    <Compile Include="Chunks\MapChunks\MapEventChunkIO.cs" />
+    <Compile Include="Chunks\MapChunks\MapEventDataIO.cs" />
+    <Compile Include="Chunks\MapChunks\MapPropChunkIO.cs" />
+    <Compile Include="Chunks\MapChunks\MapData.cs" />
+    <Compile Include="Cmds\CommandAttribute.cs" />
+    <Compile Include="Cmds\CmdMgr.cs" />
+    <Compile Include="Cmds\CommandParameterAttribute.cs" />
+    <Compile Include="Cmds\Commons\ClearCmd.cs" />
+    <Compile Include="Cmds\Commons\ExitCmd.cs" />
+    <Compile Include="Cmds\Commons\HelpCmd.cs" />
+    <Compile Include="Cmds\Commons\HelpSignCmd.cs" />
+    <Compile Include="Cmds\ICommand.cs" />
+    <Compile Include="Configs\ConfigAbstract.cs" />
+    <Compile Include="Configs\ConfigAttribute.cs" />
+    <Compile Include="Crypts\AES.cs" />
+    <Compile Include="Crypts\DES.cs" />
+    <Compile Include="Crypts\MD5.cs" />
+    <Compile Include="Crypts\RSA.cs" />
+    <Compile Include="Crypts\RSASign.cs" />
+    <Compile Include="Events\ZEvent.cs" />
+    <Compile Include="Events\ZEventDispatcher.cs" />
+    <Compile Include="Exts\MinHeapFloat.cs" />
+    <Compile Include="Exts\MinHeapInt.cs" />
+    <Compile Include="Exts\Point.cs" />
+    <Compile Include="Exts\Point2D.cs" />
+    <Compile Include="Exts\Point3D.cs" />
+    <Compile Include="Internets\BaseSocket.cs" />
+    <Compile Include="Internets\ByteArray.cs" />
+    <Compile Include="Internets\FSM.cs" />
+    <Compile Include="Internets\GBKEncoder.cs" />
+    <Compile Include="Internets\IProtocol.cs" />
+    <Compile Include="Internets\IStruct.cs" />
+    <Compile Include="Internets\Packet.cs" />
+    <Compile Include="Internets\PacketConfig.cs" />
+    <Compile Include="Internets\PacketFactory.cs" />
+    <Compile Include="Internets\PacketMgr.cs" />
+    <Compile Include="Internets\ProcessorFactory.cs" />
+    <Compile Include="Internets\ProtocolTCP.cs" />
+    <Compile Include="Internets\TCPClient.cs" />
+    <Compile Include="Internets\TCPServer.cs" />
+    <Compile Include="IServerMain.cs" />
+    <Compile Include="Loggers\ILogger.cs" />
+    <Compile Include="Loggers\XLogger.cs" />
+    <Compile Include="Loggers\LoggerImp.cs" />
+    <Compile Include="Loggers\LogLevel.cs" />
+    <Compile Include="Loggers\LogManager.cs" />
+    <Compile Include="Pools\IPoolItem.cs" />
+    <Compile Include="Pools\ObjectPool.cs" />
+    <Compile Include="ScriptCompiler.cs" />
+    <Compile Include="ServerMain.cs" />
+    <Compile Include="Singleton.cs" />
+    <Compile Include="SystemExts.cs" />
+    <Compile Include="Timers\CallbackTimer.cs" />
+    <Compile Include="Timers\ITimer.cs" />
+    <Compile Include="Timers\TimerData.cs" />
+    <Compile Include="Timers\TimerMgr.cs" />
+    <Compile Include="Tpls\Tpl.cs" />
+    <Compile Include="Tpls\TplMgr.cs" />
+    <Compile Include="Tpls\TplMode.cs" />
+    <Compile Include="Tpls\TplSearchableAttribute.cs" />
+    <Compile Include="Utils\Hex.cs" />
+    <Compile Include="Exts\QList.cs" />
+    <Compile Include="Utils\RandomChinese.cs" />
+    <Compile Include="Utils\Serializer.cs" />
+    <Compile Include="Utils\Tick.cs" />
+    <Compile Include="Utils\Util.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="zlib\Adler32.cs" />
+    <Compile Include="zlib\Deflate.cs" />
+    <Compile Include="zlib\InfBlocks.cs" />
+    <Compile Include="zlib\InfCodes.cs" />
+    <Compile Include="zlib\Inflate.cs" />
+    <Compile Include="zlib\InfTree.cs" />
+    <Compile Include="zlib\StaticTree.cs" />
+    <Compile Include="zlib\SupportClass.cs" />
+    <Compile Include="zlib\Tree.cs" />
+    <Compile Include="zlib\ZInputStream.cs" />
+    <Compile Include="zlib\Zlib.cs" />
+    <Compile Include="zlib\ZOutputStream.cs" />
+    <Compile Include="zlib\ZStream.cs" />
+    <Compile Include="zlib\ZStreamException.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetPath) $(SolutionDir)Output\$(ConfigurationName)
+copy $(TargetDir)$(ProjectName).pdb $(SolutionDir)Output\$(ConfigurationName)</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

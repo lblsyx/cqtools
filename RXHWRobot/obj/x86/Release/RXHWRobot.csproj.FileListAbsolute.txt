@@ -1,0 +1,13 @@
+D:\CQ\DHL_ToolCode\trunk\RXHWRobot\bin\Release\RXHWRobot.exe.config
+D:\CQ\DHL_ToolCode\trunk\RXHWRobot\bin\Release\RXHWRobot.exe
+D:\CQ\DHL_ToolCode\trunk\RXHWRobot\bin\Release\RXHWRobot.pdb
+D:\CQ\DHL_ToolCode\trunk\RXHWRobot\bin\Release\UnityLight.dll
+D:\CQ\DHL_ToolCode\trunk\RXHWRobot\bin\Release\UnityLight.pdb
+D:\CQ\DHL_ToolCode\trunk\RXHWRobot\obj\x86\Release\RXHWRobot.csproj.AssemblyReference.cache
+D:\CQ\DHL_ToolCode\trunk\RXHWRobot\obj\x86\Release\RXHWRobot.MainForm.resources
+D:\CQ\DHL_ToolCode\trunk\RXHWRobot\obj\x86\Release\RXHWRobot.Properties.Resources.resources
+D:\CQ\DHL_ToolCode\trunk\RXHWRobot\obj\x86\Release\RXHWRobot.csproj.GenerateResource.cache
+D:\CQ\DHL_ToolCode\trunk\RXHWRobot\obj\x86\Release\RXHWRobot.csproj.CoreCompileInputs.cache
+D:\CQ\DHL_ToolCode\trunk\RXHWRobot\obj\x86\Release\RXHWRobot.csproj.Up2Date
+D:\CQ\DHL_ToolCode\trunk\RXHWRobot\obj\x86\Release\RXHWRobot.exe
+D:\CQ\DHL_ToolCode\trunk\RXHWRobot\obj\x86\Release\RXHWRobot.pdb

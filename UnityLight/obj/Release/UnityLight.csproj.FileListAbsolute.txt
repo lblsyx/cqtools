@@ -1,0 +1,6 @@
+D:\CQ\DHL_ToolCode\trunk\UnityLight\bin\Release\UnityLight.dll
+D:\CQ\DHL_ToolCode\trunk\UnityLight\bin\Release\UnityLight.pdb
+D:\CQ\DHL_ToolCode\trunk\UnityLight\obj\Release\UnityLight.csproj.AssemblyReference.cache
+D:\CQ\DHL_ToolCode\trunk\UnityLight\obj\Release\UnityLight.csproj.CoreCompileInputs.cache
+D:\CQ\DHL_ToolCode\trunk\UnityLight\obj\Release\UnityLight.dll
+D:\CQ\DHL_ToolCode\trunk\UnityLight\obj\Release\UnityLight.pdb
