@@ -12,8 +12,7 @@
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <StartArguments>
-    </StartArguments>
+    <StartArguments>-t cpp -o D:\CQ\CQ_SERVER\ServerCore\Include\Protocols.h -u D:\CQ\CQ_SERVER\ServerCore\Source\Protocols.cpp -p -1 -s -1 -j 3</StartArguments>
     <StartWorkingDirectory>D:\CQ\CQ_PROJECT_TOOL\协议工具</StartWorkingDirectory>
   </PropertyGroup>
 </Project>

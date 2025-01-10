@@ -34,7 +34,7 @@ namespace ProtocolClient
         /// <summary>
         /// 字段基础类型
         /// </summary>
-        public static string[] BasicTypeArray = new string[] { "bool", "char", "uchar", "short", "ushort", "int", "uint", "int64", "uint64", "float", "double", "string", "map"/*, "stream"*/ };
+        public static string[] BasicTypeArray = new string[] { "bool", "char", "uchar", "short", "ushort", "int", "uint", "int64", "uint64", "float", "double", "string"/*, "stream"*/ };
 
         public static int SelectedIndex
         {

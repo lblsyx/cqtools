@@ -44,8 +44,6 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.okButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
-            this.structMapKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.structMapValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fieldsDataGridView)).BeginInit();
@@ -137,14 +135,13 @@
             this.Column3,
             this.Column4,
             this.Column5,
-            this.Column6,
-            this.structMapKey,
-            this.structMapValue});
+            this.Column6});
             this.fieldsDataGridView.Location = new System.Drawing.Point(6, 20);
             this.fieldsDataGridView.Name = "fieldsDataGridView";
             this.fieldsDataGridView.RowTemplate.Height = 23;
             this.fieldsDataGridView.Size = new System.Drawing.Size(510, 321);
             this.fieldsDataGridView.TabIndex = 0;
+
             // 
             // Column1
             // 
@@ -213,18 +210,6 @@
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
-            // structMapKey
-            // 
-            this.structMapKey.HeaderText = "Key";
-            this.structMapKey.Name = "structMapKey";
-            this.structMapKey.Visible = false;
-            // 
-            // structMapValue
-            // 
-            this.structMapValue.HeaderText = "Value";
-            this.structMapValue.Name = "structMapValue";
-            this.structMapValue.Visible = false;
-            // 
             // StructInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -266,7 +251,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.CheckBox enableMsgPack;
-        private System.Windows.Forms.DataGridViewTextBoxColumn structMapKey;
-        private System.Windows.Forms.DataGridViewTextBoxColumn structMapValue;
     }
 }

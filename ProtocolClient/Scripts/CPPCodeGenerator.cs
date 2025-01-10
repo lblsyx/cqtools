@@ -111,7 +111,10 @@ namespace ProtocolClient.Scripts
 
                 sbSHFile.Append(sbReset.ToString());
 
-                sbSHFile.Append(sbMsgPack.ToString());
+                if(stitem.EnableMsgpack == 1)
+                {
+                    sbSHFile.Append(sbMsgPack.ToString());
+                }
 
                 sbSHFile.Append("}");
                 sbSHFile.Append(string.Format(" {0}, *LP{0};\r\n\r\n", stitem.StructName));
@@ -129,9 +132,9 @@ namespace ProtocolClient.Scripts
                 {
                     //反序列化代码
                     string serfield = CodeUtil.FieldData2CPPDeserializeBin(fielditem, string.Format("oST{0}.", stitem.StructName), 4);
-                    //                     string[] lst = serfield.Split(splitter, StringSplitOptions.RemoveEmptyEntries);
-                    //                     serfield = string.Join("    \r\n", lst);
-                    //                     sbSCFile.Append(string.Format("    {0}\r\n", serfield));
+//                     string[] lst = serfield.Split(splitter, StringSplitOptions.RemoveEmptyEntries);
+//                     serfield = string.Join("    \r\n", lst);
+//                     sbSCFile.Append(string.Format("    {0}\r\n", serfield));
                     sbSCFile.Append(serfield);
                     sbSCFile.Append("\r\n");
                 }
@@ -174,9 +177,9 @@ namespace ProtocolClient.Scripts
                 {
                     //序列化代码
                     string serfield = CodeUtil.FieldData2CPPSerializeJson(fielditem, string.Format("oST{0}.", stitem.StructName), 4);
-                    //                     string[] lst = serfield.Split(splitter, StringSplitOptions.RemoveEmptyEntries);
-                    //                     serfield = string.Join("    \r\n", lst);
-                    //                     sbSCFile.Append(string.Format("    {0}\r\n", serfield));
+//                     string[] lst = serfield.Split(splitter, StringSplitOptions.RemoveEmptyEntries);
+//                     serfield = string.Join("    \r\n", lst);
+//                     sbSCFile.Append(string.Format("    {0}\r\n", serfield));
                     sbSCFile.Append(serfield);
                     sbSCFile.Append("\r\n");
                 }
@@ -217,9 +220,6 @@ namespace ProtocolClient.Scripts
                 sbBinWrite.Clear();
                 sbJsonRead.Clear();
                 sbJsonWrite.Clear();
-                sbMsgPack.Clear();
-
-                sbMsgPack.Append("    template<class T>\r\n    void pack(T& pack) {\r\n        pack(");
                 sbCtor.Append(string.Format("    usPacketID = Req{0}Code;\r\n", ptitem.ProtocolName));
                 sbPHFile.Append(string.Format("/* [请求]{0}; */\r\n", ptitem.ProtocolSummary));
                 sbPHFile.Append(string.Format("BEGIN_PACKET_CLASS(Req{0}, Req{0}Code)\r\n", ptitem.ProtocolName));
@@ -333,20 +333,10 @@ namespace ProtocolClient.Scripts
 
                     serfield = CodeUtil.FieldData2CPPSerializeJson(fielditem, "", 8);
                     sbJsonWrite.Append(string.Format("{0}\r\n", serfield));
-                    //
-                    sbMsgPack.Append(string.Format("{0}, ", fielditem.FieldName));
-                }
-
-                if (ptitem.ResFields.Count() > 0)
-                {
-                    sbMsgPack.Remove(sbMsgPack.Length - 2, 2);
-                    sbMsgPack.Append(");\r\n    };\r\n");
                 }
                 //协议来源限定
                 sbPHFile.Append("    bool ClientRequest() { return false; }\r\n");
                 sbPHFile.Append(string.Format("END_PACKET_CLASS(Res{0})\r\n\r\n", ptitem.ProtocolName));
-
-                sbPHFile.Append(sbMsgPack.ToString());
 
                 //构造函数代码
                 sbPCFile.Append(string.Format("PACKET_CONSTRUCTOR(Res{0}, Res{0}Code)\r\n", ptitem.ProtocolName));

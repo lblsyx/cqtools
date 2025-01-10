@@ -34,8 +34,18 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.reqDataGridView = new System.Windows.Forms.DataGridView();
+            this.reqFieldNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reqFieldTypeColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.reqLengthColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reqSummayrColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reqSortIndexColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.resDataGridView = new System.Windows.Forms.DataGridView();
+            this.resFieldNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resFieldTypeColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.resLengthColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resSummaryColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resSortIndexColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.allSwapButton = new System.Windows.Forms.Button();
             this.allLeftButton = new System.Windows.Forms.Button();
@@ -49,20 +59,6 @@
             this.protocolNameTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.reqFieldNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reqFieldTypeColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.reqLengthColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reqMapKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reqMapValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reqSummayrColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reqSortIndexColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.resFieldNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.resFieldTypeColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.resLengthColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.resSummaryColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.resSortIndexColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.resMapKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.resMapValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -143,8 +139,6 @@
             this.reqFieldNameColumn,
             this.reqFieldTypeColumn,
             this.reqLengthColumn,
-            this.reqMapKey,
-            this.reqMapValue,
             this.reqSummayrColumn,
             this.reqSortIndexColumn});
             this.reqDataGridView.Location = new System.Drawing.Point(6, 20);
@@ -153,6 +147,48 @@
             this.reqDataGridView.Size = new System.Drawing.Size(432, 380);
             this.reqDataGridView.TabIndex = 0;
             this.reqDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.reqDataGridView_CellContentClick);
+            // 
+            // reqFieldNameColumn
+            // 
+            this.reqFieldNameColumn.DataPropertyName = "FieldName";
+            this.reqFieldNameColumn.Frozen = true;
+            this.reqFieldNameColumn.HeaderText = "字段名";
+            this.reqFieldNameColumn.Name = "reqFieldNameColumn";
+            this.reqFieldNameColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.reqFieldNameColumn.Width = 80;
+            // 
+            // reqFieldTypeColumn
+            // 
+            this.reqFieldTypeColumn.DataPropertyName = "FieldType";
+            this.reqFieldTypeColumn.Frozen = true;
+            this.reqFieldTypeColumn.HeaderText = "字段类型";
+            this.reqFieldTypeColumn.Name = "reqFieldTypeColumn";
+            this.reqFieldTypeColumn.Width = 80;
+            // 
+            // reqLengthColumn
+            // 
+            this.reqLengthColumn.DataPropertyName = "FieldLength";
+            this.reqLengthColumn.Frozen = true;
+            this.reqLengthColumn.HeaderText = "类型长度";
+            this.reqLengthColumn.Name = "reqLengthColumn";
+            this.reqLengthColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.reqLengthColumn.Width = 80;
+            // 
+            // reqSummayrColumn
+            // 
+            this.reqSummayrColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.reqSummayrColumn.DataPropertyName = "FieldSummary";
+            this.reqSummayrColumn.HeaderText = "字段说明";
+            this.reqSummayrColumn.Name = "reqSummayrColumn";
+            this.reqSummayrColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // reqSortIndexColumn
+            // 
+            this.reqSortIndexColumn.DataPropertyName = "SortIndex";
+            this.reqSortIndexColumn.HeaderText = "排序索引";
+            this.reqSortIndexColumn.Name = "reqSortIndexColumn";
+            this.reqSortIndexColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.reqSortIndexColumn.Visible = false;
             // 
             // groupBox3
             // 
@@ -178,14 +214,54 @@
             this.resFieldTypeColumn,
             this.resLengthColumn,
             this.resSummaryColumn,
-            this.resSortIndexColumn,
-            this.resMapKey,
-            this.resMapValue});
+            this.resSortIndexColumn});
             this.resDataGridView.Location = new System.Drawing.Point(6, 20);
             this.resDataGridView.Name = "resDataGridView";
             this.resDataGridView.RowTemplate.Height = 23;
             this.resDataGridView.Size = new System.Drawing.Size(432, 380);
             this.resDataGridView.TabIndex = 0;
+            // 
+            // resFieldNameColumn
+            // 
+            this.resFieldNameColumn.DataPropertyName = "FieldName";
+            this.resFieldNameColumn.Frozen = true;
+            this.resFieldNameColumn.HeaderText = "字段名";
+            this.resFieldNameColumn.Name = "resFieldNameColumn";
+            this.resFieldNameColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.resFieldNameColumn.Width = 80;
+            // 
+            // resFieldTypeColumn
+            // 
+            this.resFieldTypeColumn.DataPropertyName = "FieldType";
+            this.resFieldTypeColumn.Frozen = true;
+            this.resFieldTypeColumn.HeaderText = "字段类型";
+            this.resFieldTypeColumn.Name = "resFieldTypeColumn";
+            this.resFieldTypeColumn.Width = 80;
+            // 
+            // resLengthColumn
+            // 
+            this.resLengthColumn.DataPropertyName = "FieldLength";
+            this.resLengthColumn.Frozen = true;
+            this.resLengthColumn.HeaderText = "类型长度";
+            this.resLengthColumn.Name = "resLengthColumn";
+            this.resLengthColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.resLengthColumn.Width = 80;
+            // 
+            // resSummaryColumn
+            // 
+            this.resSummaryColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.resSummaryColumn.DataPropertyName = "FieldSummary";
+            this.resSummaryColumn.HeaderText = "字段说明";
+            this.resSummaryColumn.Name = "resSummaryColumn";
+            this.resSummaryColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // resSortIndexColumn
+            // 
+            this.resSortIndexColumn.DataPropertyName = "SortIndex";
+            this.resSortIndexColumn.HeaderText = "排序索引";
+            this.resSortIndexColumn.Name = "resSortIndexColumn";
+            this.resSortIndexColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.resSortIndexColumn.Visible = false;
             // 
             // groupBox4
             // 
@@ -325,114 +401,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "协议枚举：";
             // 
-            // reqFieldNameColumn
-            // 
-            this.reqFieldNameColumn.DataPropertyName = "FieldName";
-            this.reqFieldNameColumn.Frozen = true;
-            this.reqFieldNameColumn.HeaderText = "字段名";
-            this.reqFieldNameColumn.Name = "reqFieldNameColumn";
-            this.reqFieldNameColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.reqFieldNameColumn.Width = 80;
-            // 
-            // reqFieldTypeColumn
-            // 
-            this.reqFieldTypeColumn.DataPropertyName = "FieldType";
-            this.reqFieldTypeColumn.Frozen = true;
-            this.reqFieldTypeColumn.HeaderText = "字段类型";
-            this.reqFieldTypeColumn.Name = "reqFieldTypeColumn";
-            this.reqFieldTypeColumn.Width = 80;
-            // 
-            // reqLengthColumn
-            // 
-            this.reqLengthColumn.DataPropertyName = "FieldLength";
-            this.reqLengthColumn.Frozen = true;
-            this.reqLengthColumn.HeaderText = "类型长度";
-            this.reqLengthColumn.Name = "reqLengthColumn";
-            this.reqLengthColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.reqLengthColumn.Width = 80;
-            // 
-            // reqMapKey
-            // 
-            this.reqMapKey.HeaderText = "Key";
-            this.reqMapKey.Name = "reqMapKey";
-            this.reqMapKey.Visible = false;
-            // 
-            // reqMapValue
-            // 
-            this.reqMapValue.HeaderText = "Value";
-            this.reqMapValue.Name = "reqMapValue";
-            this.reqMapValue.Visible = false;
-            // 
-            // reqSummayrColumn
-            // 
-            this.reqSummayrColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.reqSummayrColumn.DataPropertyName = "FieldSummary";
-            this.reqSummayrColumn.HeaderText = "字段说明";
-            this.reqSummayrColumn.Name = "reqSummayrColumn";
-            this.reqSummayrColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // reqSortIndexColumn
-            // 
-            this.reqSortIndexColumn.DataPropertyName = "SortIndex";
-            this.reqSortIndexColumn.HeaderText = "排序索引";
-            this.reqSortIndexColumn.Name = "reqSortIndexColumn";
-            this.reqSortIndexColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.reqSortIndexColumn.Visible = false;
-            // 
-            // resFieldNameColumn
-            // 
-            this.resFieldNameColumn.DataPropertyName = "FieldName";
-            this.resFieldNameColumn.Frozen = true;
-            this.resFieldNameColumn.HeaderText = "字段名";
-            this.resFieldNameColumn.Name = "resFieldNameColumn";
-            this.resFieldNameColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.resFieldNameColumn.Width = 80;
-            // 
-            // resFieldTypeColumn
-            // 
-            this.resFieldTypeColumn.DataPropertyName = "FieldType";
-            this.resFieldTypeColumn.Frozen = true;
-            this.resFieldTypeColumn.HeaderText = "字段类型";
-            this.resFieldTypeColumn.Name = "resFieldTypeColumn";
-            this.resFieldTypeColumn.Width = 80;
-            // 
-            // resLengthColumn
-            // 
-            this.resLengthColumn.DataPropertyName = "FieldLength";
-            this.resLengthColumn.Frozen = true;
-            this.resLengthColumn.HeaderText = "类型长度";
-            this.resLengthColumn.Name = "resLengthColumn";
-            this.resLengthColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.resLengthColumn.Width = 80;
-            // 
-            // resSummaryColumn
-            // 
-            this.resSummaryColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.resSummaryColumn.DataPropertyName = "FieldSummary";
-            this.resSummaryColumn.HeaderText = "字段说明";
-            this.resSummaryColumn.Name = "resSummaryColumn";
-            this.resSummaryColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // resSortIndexColumn
-            // 
-            this.resSortIndexColumn.DataPropertyName = "SortIndex";
-            this.resSortIndexColumn.HeaderText = "排序索引";
-            this.resSortIndexColumn.Name = "resSortIndexColumn";
-            this.resSortIndexColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.resSortIndexColumn.Visible = false;
-            // 
-            // resMapKey
-            // 
-            this.resMapKey.HeaderText = "Key";
-            this.resMapKey.Name = "resMapKey";
-            this.resMapKey.Visible = false;
-            // 
-            // resMapValue
-            // 
-            this.resMapValue.HeaderText = "Value";
-            this.resMapValue.Name = "resMapValue";
-            this.resMapValue.Visible = false;
-            // 
             // ProtocolInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -483,13 +451,9 @@
         private System.Windows.Forms.Button allLeftButton;
         private System.Windows.Forms.Button allRightbutton;
         private System.Windows.Forms.Button allSwapButton;
-        private System.Windows.Forms.TextBox protocolCodeTextBox;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn reqFieldNameColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn reqFieldTypeColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn reqLengthColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn reqMapKey;
-        private System.Windows.Forms.DataGridViewTextBoxColumn reqMapValue;
         private System.Windows.Forms.DataGridViewTextBoxColumn reqSummayrColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn reqSortIndexColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn resFieldNameColumn;
@@ -497,7 +461,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn resLengthColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn resSummaryColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn resSortIndexColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn resMapKey;
-        private System.Windows.Forms.DataGridViewTextBoxColumn resMapValue;
+        private System.Windows.Forms.TextBox protocolCodeTextBox;
+        private System.Windows.Forms.Label label3;
     }
 }
