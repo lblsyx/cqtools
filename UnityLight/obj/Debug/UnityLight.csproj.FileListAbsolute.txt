@@ -1,6 +1,0 @@
-D:\CQ\DHL_ToolCode\trunk\UnityLight\bin\Debug\UnityLight.dll
-D:\CQ\DHL_ToolCode\trunk\UnityLight\bin\Debug\UnityLight.pdb
-D:\CQ\DHL_ToolCode\trunk\UnityLight\obj\Debug\UnityLight.csproj.AssemblyReference.cache
-D:\CQ\DHL_ToolCode\trunk\UnityLight\obj\Debug\UnityLight.csproj.CoreCompileInputs.cache
-D:\CQ\DHL_ToolCode\trunk\UnityLight\obj\Debug\UnityLight.dll
-D:\CQ\DHL_ToolCode\trunk\UnityLight\obj\Debug\UnityLight.pdb

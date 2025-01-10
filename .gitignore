@@ -1,7 +1,8 @@
 ## Visual Studio 相关
 .vs/
- */bin
- */obj
+*/bin
+*/obj
+Output
 [Bb]in/
 [Oo]bj/
 *.user
