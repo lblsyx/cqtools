@@ -55,7 +55,7 @@ namespace ProtocolClient
             if (iIImport == null) return;
 
             string path = ProtocolUtil.GetPath(iIImport.InputPathType, iIImport.InputFilter);//string.Format("导入文件({0})|{0}", iIImport.InputFilter)
-            
+
             if (string.IsNullOrEmpty(path)) return;
 
             ProjectInfo oProjectInfo = null;
@@ -158,16 +158,16 @@ namespace ProtocolClient
                 oGenCodeToolMenuItem.Click += oGenCodeToolMenuItem_Click;
                 GenCodeToolStripMenuItem.DropDownItems.Add(oGenCodeToolMenuItem);
 
-                if(Global.args.Length > 0)
+                if (Global.args.Length > 0)
                 {
                     string args = Global.args[0];
-                    if(item.Name.IndexOf(args) > -1)
+                    if (item.Name.IndexOf(args) > -1)
                     {
                         System.Timers.Timer t = new System.Timers.Timer(2000);   //实例化Timer类，设置间隔时间为10000毫秒；   
                         t.Elapsed += new System.Timers.ElapsedEventHandler((s, e) => theout(s, e, oGenCodeToolMenuItem)); //到达时间的时候执行事件；   
                         t.AutoReset = false;   //设置是执行一次（false）还是一直执行(true)；   
                         t.Enabled = true;     //是否执行System.Timers.Timer.Elapsed事件；   
-    
+
                         return;
                     }
                 }
@@ -405,7 +405,7 @@ namespace ProtocolClient
         {
             if (ProtocolUtil.CheckRight() == false) return;
             // 用最新版本号和当前版本号对比
-            if(Global.ProtocolOperateVer != MySQLUtil.ReloadCurProtocolOperateVer())
+            if (Global.ProtocolOperateVer != MySQLUtil.ReloadCurProtocolOperateVer())
             {
                 MessageBox.Show("当前版本非最新版本请更新");
                 return;
@@ -604,6 +604,11 @@ namespace ProtocolClient
             {
                 nameMaxLen = Math.Max(nameMaxLen, item.FieldName.Length);
                 typeMaxLen = Math.Max(typeMaxLen, item.FieldType.Length);
+                if (item.FieldType == "map")
+                {
+                    string realTypeStr = string.Format("{0}<{1},{2}>", item.FieldType, item.MapFieldKeyType, item.MapFieldValueType);
+                    typeMaxLen = Math.Max(typeMaxLen, realTypeStr.Length);
+                }
             }
 
             int temp = 0;
@@ -632,6 +637,10 @@ namespace ProtocolClient
                 string nameStr = item.FieldName.PadRight(nameMaxLen);
                 string typeStr = item.FieldType.PadRight(typeMaxLen);
 
+                if (item.FieldType == "map")
+                {
+                    typeStr = string.Format("{0}<{1},{2}>", item.FieldType, item.MapFieldKeyType, item.MapFieldValueType).PadRight(typeMaxLen);
+                }
                 fields.Add(string.Format("    {0}{1}{3}//{2}", nameStr, typeStr, item.FieldSummary, string.IsNullOrEmpty(item.FieldLength) ? string.Empty : "[" + item.FieldLength + "]"));
             }
 
@@ -902,7 +911,7 @@ namespace ProtocolClient
                 }
                 else
                 {
-                    if(oProtocolInfo.FromClient == 0)
+                    if (oProtocolInfo.FromClient == 0)
                     {
                         oProtocolInfo.FromClient = 1;
                     }
@@ -910,7 +919,7 @@ namespace ProtocolClient
                     {
                         oProtocolInfo.FromClient = 0;
                     }
-                    
+
                     protocolDataGridView.UpdateCellValue(e.RowIndex, e.ColumnIndex);
                 }
             }
