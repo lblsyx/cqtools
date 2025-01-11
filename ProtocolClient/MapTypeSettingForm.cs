@@ -124,7 +124,7 @@ namespace ProtocolClient
         {
             var fieldList = Global.FieldTypeList.ToArray();
             var types = fieldList.Where(t => t.ToString() != "map").ToArray();
-            keyTypeComboBox.Items.AddRange(types);
+            keyTypeComboBox.Items.AddRange(Global.MapKeyTypeArray);
             valueTypeComboBox.Items.AddRange(types);
         }
 

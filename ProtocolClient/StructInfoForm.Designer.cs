@@ -1,4 +1,7 @@
-﻿namespace ProtocolClient
+﻿using System.Windows.Forms;
+using System;
+
+namespace ProtocolClient
 {
     partial class StructInfoForm
     {
@@ -36,18 +39,21 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.fieldsDataGridView = new System.Windows.Forms.DataGridView();
+            this.okButton = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fieldTypeColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MapKeyType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MapValueType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.feildLengthCloumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.okButton = new System.Windows.Forms.Button();
-            this.cancelButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fieldsDataGridView)).BeginInit();
             this.SuspendLayout();
+            this.fieldsDataGridView.EditingControlShowing += DataGridView_EditingControlShowing;
             // 
             // groupBox1
             // 
@@ -132,7 +138,9 @@
             this.fieldsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.fieldTypeColumn,
-            this.Column3,
+            this.MapKeyType,
+            this.MapValueType,
+            this.feildLengthCloumn,
             this.Column4,
             this.Column5,
             this.Column6});
@@ -141,7 +149,28 @@
             this.fieldsDataGridView.RowTemplate.Height = 23;
             this.fieldsDataGridView.Size = new System.Drawing.Size(510, 321);
             this.fieldsDataGridView.TabIndex = 0;
-
+            // 
+            // okButton
+            // 
+            this.okButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.okButton.Location = new System.Drawing.Point(170, 469);
+            this.okButton.Name = "okButton";
+            this.okButton.Size = new System.Drawing.Size(100, 35);
+            this.okButton.TabIndex = 2;
+            this.okButton.Text = "确定(&O)";
+            this.okButton.UseVisualStyleBackColor = true;
+            this.okButton.Click += new System.EventHandler(this.okButton_Click);
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.cancelButton.Location = new System.Drawing.Point(276, 469);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(100, 35);
+            this.cancelButton.TabIndex = 3;
+            this.cancelButton.Text = "取消(&C)";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // Column1
             // 
@@ -157,12 +186,24 @@
             this.fieldTypeColumn.HeaderText = "字段类型";
             this.fieldTypeColumn.Name = "fieldTypeColumn";
             // 
-            // Column3
+            // MapKeyType
             // 
-            this.Column3.DataPropertyName = "FieldLength";
-            this.Column3.HeaderText = "类型长度";
-            this.Column3.Name = "Column3";
-            this.Column3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.MapKeyType.DataPropertyName = "MapFieldKeyType";
+            this.MapKeyType.HeaderText = "Key";
+            this.MapKeyType.Name = "MapKeyType";
+            // 
+            // MapValueType
+            // 
+            this.MapValueType.DataPropertyName = "MapFieldValueType";
+            this.MapValueType.HeaderText = "Value";
+            this.MapValueType.Name = "MapValueType";
+            // 
+            // feildLengthCloumn
+            // 
+            this.feildLengthCloumn.DataPropertyName = "FieldLength";
+            this.feildLengthCloumn.HeaderText = "类型长度";
+            this.feildLengthCloumn.Name = "feildLengthCloumn";
+            this.feildLengthCloumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // Column4
             // 
@@ -188,28 +229,6 @@
             this.Column6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Column6.Visible = false;
             // 
-            // okButton
-            // 
-            this.okButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.okButton.Location = new System.Drawing.Point(170, 469);
-            this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(100, 35);
-            this.okButton.TabIndex = 2;
-            this.okButton.Text = "确定(&O)";
-            this.okButton.UseVisualStyleBackColor = true;
-            this.okButton.Click += new System.EventHandler(this.okButton_Click);
-            // 
-            // cancelButton
-            // 
-            this.cancelButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.cancelButton.Location = new System.Drawing.Point(276, 469);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(100, 35);
-            this.cancelButton.TabIndex = 3;
-            this.cancelButton.Text = "取消(&C)";
-            this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
-            // 
             // StructInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -233,6 +252,63 @@
 
         }
 
+        private void DataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (e.Control is ComboBox comboBox)
+            {
+                comboBox.SelectedIndexChanged -= ComboBox_SelectedIndexChanged;
+                comboBox.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
+            }
+        }
+
+        private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (sender is ComboBox comboBox)
+            {
+                var cell = fieldsDataGridView.CurrentCell;
+                if (cell == null) return;
+                var row = cell.OwningRow;
+
+                var keyTypeCell = row.Cells[$"MapKeyType"];
+                var valueTypeCell = row.Cells[$"MapValueType"];
+                var LengthColumnCell = row.Cells[$"feildLengthCloumn"];
+                if (comboBox.SelectedItem == null)
+                {
+                    return;
+                }
+                else if (comboBox.SelectedItem.ToString() == "map")
+                {
+                    //// 如果是新选择的 map 类型且 key/value 类型为空，则弹出设置窗口
+                    if (string.IsNullOrEmpty(keyTypeCell.Value?.ToString()) &&
+                        string.IsNullOrEmpty(valueTypeCell.Value?.ToString()))
+                    {
+                        using (var form = new MapTypeSettingForm(keyTypeCell.Value?.ToString(), valueTypeCell.Value?.ToString()))
+                        {
+                            if (form.ShowDialog() == DialogResult.OK)
+                            {
+                                keyTypeCell.Value = form.KeyType;
+                                valueTypeCell.Value = form.ValueType;
+                            }
+                            else
+                            {
+                                if (keyTypeCell.Value == null)
+                                    keyTypeCell.Value = "int";
+                                if (valueTypeCell.Value == null)
+                                    valueTypeCell.Value = "int";
+                            }
+                        }
+                    }
+                    LengthColumnCell.Value = null;
+                }
+                else
+                {
+                    // 如果选择了非 map 类型，清空 key/value 类型
+                    keyTypeCell.Value = null;
+                    valueTypeCell.Value = null;
+                }
+            }
+        }
+
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
@@ -244,12 +320,14 @@
         private System.Windows.Forms.DataGridView fieldsDataGridView;
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewComboBoxColumn fieldTypeColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.CheckBox enableMsgPack;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewComboBoxColumn fieldTypeColumn;
+        private DataGridViewTextBoxColumn MapKeyType;
+        private DataGridViewTextBoxColumn MapValueType;
+        private DataGridViewTextBoxColumn feildLengthCloumn;
+        private DataGridViewTextBoxColumn Column4;
+        private DataGridViewTextBoxColumn Column5;
+        private DataGridViewTextBoxColumn Column6;
     }
 }

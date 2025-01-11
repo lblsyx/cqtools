@@ -50,6 +50,14 @@ namespace ProtocolClient
             "string",
             "map"
         };
+        public static readonly string[] MapKeyTypeArray = new string[]
+        {
+            "int",
+            "uint",
+            "int64",
+            "uint64",
+            "string",
+        };
 
         public static int SelectedIndex
         {

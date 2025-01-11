@@ -259,7 +259,9 @@ namespace ProtocolClient.Scripts
                     //rlt = string.Empty;
                     rlt = string.Format("{0}.ClearStream();//{1}", fieldData.FieldName, fieldData.FieldSummary);
                     break;
-
+                case "map":
+                    rlt = string.Format("{0}.clear();//{1}", fieldData.FieldName, fieldData.FieldSummary);
+                    break;
                 case "bool":
                 case "char":
                 case "uchar":
@@ -271,7 +273,7 @@ namespace ProtocolClient.Scripts
                 case "uint64":
                 case "float":
                 case "double":
-                //default:
+                    //default:
                     if (string.IsNullOrEmpty(fieldData.FieldLength))
                     {
                         rlt = string.Format("{0} = 0;//{1};", fieldData.FieldName, fieldData.FieldSummary);
@@ -429,7 +431,13 @@ namespace ProtocolClient.Scripts
                         }
                     }
                     break;
-
+                case "map":
+                    {
+                        string mapFieldKeyType = fieldData.MapFieldKeyType == "string" ? "std::string" : fieldData.MapFieldKeyType;
+                        string mapFieldValueType = fieldData.MapFieldValueType == "string" ? "std::string" : fieldData.MapFieldValueType;
+                        rlt = string.Format("std::map<{1}, {2}> {0};//{3};", fieldData.FieldName, mapFieldKeyType, mapFieldValueType, fieldData.FieldSummary);
+                    }
+                    break;
                 case "stream":
                     if (string.IsNullOrEmpty(fieldData.FieldLength))
                     {
@@ -490,12 +498,22 @@ namespace ProtocolClient.Scripts
         {
             string rlt;
             string sBlankSpace = string.Empty;
-            for(int i = 0; i < nBSCount; i++)
+            for (int i = 0; i < nBSCount; i++)
             {
                 sBlankSpace += " ";
             }
 
-            if (string.IsNullOrEmpty(fieldData.FieldLength))
+            if (fieldData.FieldType == "map")
+            {
+                rlt = string.Format(@"{2}ushort us{0}Len = (ushort){1}{0}.size();
+{2}stream << us{0}Len;
+{2}for(auto& [key, value] : {1}{0})
+{2}{{
+{2}    stream << key;
+{2}    stream << value;
+{2}}}", fieldData.FieldName, scope, sBlankSpace);
+            }
+            else if (string.IsNullOrEmpty(fieldData.FieldLength))
             {//普通变量
                 rlt = string.Format("{2}stream << {1}{0};", fieldData.FieldName, scope, sBlankSpace);
             }
@@ -536,14 +554,29 @@ namespace ProtocolClient.Scripts
                 sBlankSpace += " ";
             }
 
-            if (string.IsNullOrEmpty(fieldData.FieldLength))
+            if (fieldData.FieldType == "map")
+            {
+                string mapFieldKeyType = fieldData.MapFieldKeyType == "string" ? "std::string" : fieldData.MapFieldKeyType;
+                string mapFieldValueType = fieldData.MapFieldValueType == "string" ? "std::string" : fieldData.MapFieldValueType;
+                rlt = string.Format(@"{2}ushort us{0}Len = 0;
+{2}{3} o{0}Key;
+{2}{4} o{0}Value;
+{2}stream >> us{0}Len;
+{2}for(int i = 0; i < us{0}Len; ++i)
+{2}{{
+{2}    stream >> o{0}Key;
+{2}    stream >> o{0}Value;
+{2}    {1}{0}[o{0}Key] = o{0}Value;
+{2}}}", fieldData.FieldName, scope, sBlankSpace, mapFieldKeyType, mapFieldValueType);
+            }
+            else if (string.IsNullOrEmpty(fieldData.FieldLength))
             {//普通变量
                 rlt = string.Format(@"{2}stream >> {1}{0};", fieldData.FieldName, scope, sBlankSpace);
             }
             else
             {
                 if (fieldData.FieldLength == "*")
-                {                   
+                {
                     string fieldType = fieldData.FieldType == "string" ? "std::string" : fieldData.FieldType;
                     string sReset = string.Format(@"{1}    o{0}Item.reset();", fieldData.FieldName, sBlankSpace);
                     rlt = string.Format(@"{3}ushort us{0}Len = 0;
@@ -582,7 +615,24 @@ namespace ProtocolClient.Scripts
                 sBlankSpace += " ";
             }
 
-            if (string.IsNullOrEmpty(fieldData.FieldLength))
+            if(fieldData.FieldType == "map")
+            {
+                if (fieldData.MapFieldKeyType == "string")
+                {
+                    rlt = string.Format(@"{2}for(auto& [key, value] : {1}{0})
+{2}{{
+{2}    jsonvalue[""{0}""][key] << value;
+{2}}}", fieldData.FieldName, scope, sBlankSpace);
+                }
+                else
+                {
+                    rlt = string.Format(@"{2}for(auto& [key, value] : {1}{0})
+{2}{{
+{2}    jsonvalue[""{0}""][std::to_string(key)] << value;
+{2}}}", fieldData.FieldName, scope, sBlankSpace);
+                }
+            }
+            else if (string.IsNullOrEmpty(fieldData.FieldLength))
             {
                 rlt = string.Format("{2}jsonvalue[\"{0}\"] << {1}{0};", fieldData.FieldName, scope, sBlankSpace);
             }
@@ -623,7 +673,27 @@ namespace ProtocolClient.Scripts
                 sBlankSpace += " ";
             }
 
-            if (string.IsNullOrEmpty(fieldData.FieldLength))
+            if (fieldData.FieldType == "map")
+            {
+                if (fieldData.MapFieldKeyType == "string")
+                {
+                    rlt = string.Format(@"{2} for (auto& name : jsonvalue[""{0}""].getMemberNames())
+{2}{{
+{2}    jsonvalue[""{0}""][name] >> {1}{0}[name];
+{2}}}", fieldData.FieldName, scope, sBlankSpace);
+                }
+                else
+                {
+                    rlt = string.Format(@"{2}{3} o{0}Key;
+{2}for (auto& name : jsonvalue[""{0}""].getMemberNames())
+{2}{{
+{2}    std::stringstream ss(name);
+{2}    ss >> o{0}Key;
+{2}    jsonvalue[""{0}""][name] >> {1}{0}[o{0}Key];
+{2}}}", fieldData.FieldName, scope, sBlankSpace, fieldData.MapFieldKeyType);
+                }
+            }
+            else if (string.IsNullOrEmpty(fieldData.FieldLength))
             {
                 rlt = string.Format("{2}jsonvalue[\"{0}\"] >> {1}{0};", fieldData.FieldName, scope, sBlankSpace);
             }
@@ -744,7 +814,7 @@ namespace ProtocolClient.Scripts
                     }
                     break;
 
-                    // 自定义类型字段
+                // 自定义类型字段
                 default:
                     if (string.IsNullOrEmpty(fieldData.FieldLength))
                     {
@@ -791,7 +861,7 @@ namespace ProtocolClient.Scripts
                         {
                             return string.Format("[{0}]int8", fieldData.FieldLength);
                         }
-                    } 
+                    }
 
                 case "uchar":
                     if (string.IsNullOrEmpty(fieldData.FieldLength))
@@ -1363,7 +1433,7 @@ namespace ProtocolClient.Scripts
 
             StringBuilder res = new StringBuilder();
             StringBuilder array = new StringBuilder();
-    
+
             res.Append(string.Format("func (p *{0}) ConvertPb() *Pb{0} {{\r\n", structName));
             res.Append("\tif p == nil {\r\n");
             res.Append("\t\treturn nil\t\n");
@@ -1766,7 +1836,7 @@ namespace ProtocolClient.Scripts
                         //rlt = string.Format("        {1}{0} = bytes.readInt64();", fieldData.FieldName, scope);
                     }
                     return sbTemp.ToString();
-                    //break;
+                //break;
 
                 case "uint64":
                     if (isArray)
@@ -2311,7 +2381,7 @@ namespace ProtocolClient.Scripts
                         break;
                 }
             }
-            else if(fieldData.FieldLength == "*")
+            else if (fieldData.FieldLength == "*")
             {
                 rlt = fieldData.FieldName + ".Clear();";
             }
