@@ -70,12 +70,74 @@ namespace ProtocolClient
 
             oDataGridViewComboBoxColumn = reqDataGridView.Columns["reqFieldTypeColumn"] as DataGridViewComboBoxColumn;
             oDataGridViewComboBoxColumn.DataSource = Global.FieldTypeList;
+            reqDataGridView.EditingControlShowing += DataGridView_EditingControlShowing;
 
             oDataGridViewComboBoxColumn = resDataGridView.Columns["resFieldTypeColumn"] as DataGridViewComboBoxColumn;
             oDataGridViewComboBoxColumn.DataSource = Global.FieldTypeList;
+            resDataGridView.EditingControlShowing += DataGridView_EditingControlShowing;
 
             mReqRowDragDrop = new RowDragDrop<FieldInfo>(reqDataGridView);
             mResRowDragDrop = new RowDragDrop<FieldInfo>(resDataGridView);
+        }
+
+        private void DataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (e.Control is ComboBox comboBox)
+            {
+                comboBox.SelectedIndexChanged -= ComboBox_SelectedIndexChanged;
+                comboBox.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
+            }
+        }
+
+        private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (sender is ComboBox comboBox)
+            {
+                DataGridView grid = reqDataGridView.CurrentCell != null ? reqDataGridView : resDataGridView;
+                if (grid == null) return;
+                var cell = grid.CurrentCell;
+                if (cell == null) return;
+                var row = cell.OwningRow;
+
+                string prefix = grid == reqDataGridView ? "req" : "res";
+                var keyTypeCell = row.Cells[$"{prefix}MapKeyType"];
+                var valueTypeCell = row.Cells[$"{prefix}MapValueType"];
+                var LengthColumnCell = row.Cells[$"{prefix}LengthColumn"];
+                if (comboBox.SelectedItem==null)
+                {
+                    return;
+                }
+                else if (comboBox.SelectedItem.ToString() == "map")
+                {
+                    //// 如果是新选择的 map 类型且 key/value 类型为空，则弹出设置窗口
+                    if (string.IsNullOrEmpty(keyTypeCell.Value?.ToString()) &&
+                        string.IsNullOrEmpty(valueTypeCell.Value?.ToString()))
+                    {
+                        using (var form = new MapTypeSettingForm(keyTypeCell.Value?.ToString(), valueTypeCell.Value?.ToString()))
+                        {
+                            if (form.ShowDialog() == DialogResult.OK)
+                            {
+                                keyTypeCell.Value = form.KeyType;
+                                valueTypeCell.Value = form.ValueType;
+                            }
+                            else
+                            {
+                                if(keyTypeCell.Value == null)
+                                    keyTypeCell.Value = "int";
+                                if (valueTypeCell.Value == null)
+                                    valueTypeCell.Value = "int";
+                            }
+                        }
+                    }
+                    LengthColumnCell.Value = null;
+                }
+                else
+                {
+                    // 如果选择了非 map 类型，清空 key/value 类型
+                    keyTypeCell.Value = null;
+                    valueTypeCell.Value = null;
+                }
+            }
         }
 
         private void okButton_Click(object sender, EventArgs e)

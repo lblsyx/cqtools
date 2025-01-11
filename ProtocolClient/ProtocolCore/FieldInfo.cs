@@ -24,6 +24,17 @@ namespace ProtocolCore
         public string FieldType { get; set; }
 
         /// <summary>
+        /// 字段类型
+        /// </summary>
+        //[DataMember(Order = 2)]
+        public string MapFieldKeyType { get; set; }
+        /// <summary>
+        /// 字段类型
+        /// </summary>
+        //[DataMember(Order = 2)]
+        public string MapFieldValueType { get; set; }
+
+        /// <summary>
         /// 字段长度
         /// </summary>
         //[DataMember(Order = 3)]
@@ -46,6 +57,8 @@ namespace ProtocolCore
 
             oFieldInfo.FieldName = FieldName;
             oFieldInfo.FieldType = FieldType;
+            oFieldInfo.MapFieldKeyType = MapFieldKeyType;
+            oFieldInfo.MapFieldValueType = MapFieldValueType;
             oFieldInfo.FieldLength = FieldLength;
             oFieldInfo.FieldSummary = FieldSummary;
             oFieldInfo.SortIndex = SortIndex;
